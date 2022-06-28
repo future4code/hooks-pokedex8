@@ -6,4 +6,4 @@ export default function HomePage() {
   return (
    <div>Pokedex 8</div>
    );
-}
+};
