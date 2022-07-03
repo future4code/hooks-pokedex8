@@ -5,8 +5,11 @@ import DetalhesPage from "../pages/Detalhes/Detalhes";
 import PokedexPage from "../pages/Pokedex/Pokedex";
 import Error from "../pages/ErrorPage/Error";
 
+
+
 export default function Router() {
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -15,5 +18,6 @@ export default function Router() {
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
+    
   );
 }
