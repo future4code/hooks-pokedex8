@@ -39,6 +39,7 @@ export default function HomePage() {
         {/* <DivA> */}
           {/* <DivB> */}
             <img src={logoimg} />
+
           {/* </DivB> */}
           <DivButtonPokedex>
             <Button
@@ -49,14 +50,17 @@ export default function HomePage() {
               Pokedex Page
             </Button>
           </DivButtonPokedex>
+
         {/* </DivA> */}
       </ContHeader>
+
       <SectionCardRendered>
         {pokemon &&
           pokemon.map((objPoke) => {
-            return <CardPokemon pokemon={objPoke} />;
+            return <CardPokemon pokemon={objPoke.name} />;
           })}
       </SectionCardRendered>
+
     </ContainerHome>
   );
 }
