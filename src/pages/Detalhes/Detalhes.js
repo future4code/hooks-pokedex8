@@ -27,31 +27,41 @@ const ContA = styled.div`
   justify-content: center;
 `;
 const DivA = styled.div`
-  border: 2px solid black;
+  /* border: 2px solid black; */
   background-color: #9fd7f9;
   border-radius: 20px;
   :hover {
-   
+   background-color: blue;
     transform: scale(1.1);
   }
 `;
 
 const DivB = styled.div`
-  border: 2px solid black;
+  /* border: 2px solid black; */
   background-color: #b8e2f9;
   border-radius: 20px;
-  :hover {    
+  :hover {   
+    background-color: blue; 
     transform: scale(1.1);
   }
 `;
+
+const DivCard = styled.div`
+/* border: 2px solid black; */
+border-radius: 20px;
+width: max-content;
+padding: 10px 15px;
+margin-top: 100px;
+background-color: #ffffff70;
+` 
 
 const DivC = styled.div`
   display: flex;
   /* width: max-content; */
   flex-direction: column;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 20px;
-  margin-top: 100px;
+
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -83,7 +93,7 @@ const DivE = styled.div`
   text-align: center;
   margin: 0px 20px;
   padding: 20px 20px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 20px;
   background-color: #ffff00;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -110,6 +120,12 @@ const P = styled.p`
   margin: 0;
   text-transform: uppercase;
 `;
+
+const Img = styled.img`
+:hover{
+scale: calc(1.2);
+}
+`
 
 const DivG = styled.div`
   display: flex;
@@ -149,7 +165,7 @@ const Div3 = styled.div`
   /* width: 180px; */
   padding: 11px;
   gap: 20px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   background-color: yellow;
   border-radius: 20px;
   :hover {
@@ -200,14 +216,15 @@ export default function Detalhes() {
 
       <DivD>{pokemon.name}</DivD>
       <ContA>
+        <DivCard>
         <DivC>
           <Div2>
             <Div1>
               <DivA>
-                <img src={pokemon.sprites && pokemon.sprites.front_default} />
+                <Img src={pokemon.sprites && pokemon.sprites.front_default} />
               </DivA>
               <DivB>
-                <img src={pokemon.sprites && pokemon.sprites.back_default} />
+                <Img src={pokemon.sprites && pokemon.sprites.back_default} />
               </DivB>
             </Div1>
 
@@ -242,6 +259,7 @@ export default function Detalhes() {
             </Div3>
           </Div2>
         </DivC>
+        </DivCard>
       </ContA>
     </Global>
   );
