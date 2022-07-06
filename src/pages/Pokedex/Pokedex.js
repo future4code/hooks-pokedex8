@@ -13,11 +13,6 @@ export default function Pokedex() {
     <Typography variant="h1" align={"center"}>
     Pokedex Page
   </Typography>
-  <Button
-  variant="contained"
-  color="primary"
-  onClick={()=>goToDetalhesPage(navigate)}
-  >Detalhes Page</Button>
     <Button
   variant="contained"
   color="primary"
