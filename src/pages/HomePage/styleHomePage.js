@@ -54,4 +54,9 @@ export const SectionCardRendered = styled.section`
   padding-left: 250px;
   padding-right: 250px;
   margin-bottom: 20px;
+
+  @media(max-width:600px)  {
+    display:flex;
+    flex-direction: column;
+  }
 `;
