@@ -19,7 +19,10 @@ export const Main = styled.div`
     border-radius: 20px;
   }
   `
-
+export const P = styled.p`
+text-transform: capitalize;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+`
 
 
 export const Img = styled.img`
@@ -29,6 +32,8 @@ background-color: #ffffff70;
   border-radius:  20px 0px 0px 20px;
   :hover{
     background-color: blue;
+    scale: calc(1.2);
+    background: none;
   }
 `;
 

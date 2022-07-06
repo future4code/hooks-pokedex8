@@ -6,9 +6,7 @@ import { goBack } from "../../Router/coordinator";
 import { Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
-import imgBack from "../../imagens/pokemon.png"
-
-
+import imgBack from "../../imagens/pokemon.png";
 
 const Global = styled.div`
   width: 100vw;
@@ -19,7 +17,7 @@ const Global = styled.div`
 `;
 
 const Typo = styled.div`
-margin-top: 40px;
+  margin-top: 40px;
 `;
 
 const ContA = styled.div`
@@ -27,36 +25,50 @@ const ContA = styled.div`
   justify-content: center;
 `;
 const DivA = styled.div`
-  border: 2px solid black;
+  /* border: 2px solid black; */
   background-color: #9fd7f9;
   border-radius: 20px;
   :hover {
-   
+    background-color: blue;
     transform: scale(1.1);
   }
 `;
 
 const DivB = styled.div`
-  border: 2px solid black;
+  /* border: 2px solid black; */
   background-color: #b8e2f9;
   border-radius: 20px;
-  :hover {    
+  :hover {
+    background-color: blue;
     transform: scale(1.1);
   }
+`;
+
+const DivCard = styled.div`
+  /* border: 2px solid black; */
+  border-radius: 20px;
+  width: max-content;
+  padding: 10px 15px;
+  margin-top: 100px;
+  background-color: #ffffff70;
 `;
 
 const DivC = styled.div`
   display: flex;
   /* width: max-content; */
   flex-direction: column;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 20px;
-  margin-top: 100px;
+
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: rgb(255,255,255);
-background: linear-gradient(25deg, rgba(255,255,255,1) 50%, rgba(176,228,106,1) 67%);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    25deg,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(176, 228, 106, 1) 67%
+  );
   :hover {
     scale: calc(1.1);
   }
@@ -83,7 +95,7 @@ const DivE = styled.div`
   text-align: center;
   margin: 0px 20px;
   padding: 20px 20px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 20px;
   background-color: #ffff00;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -104,11 +116,18 @@ const DivF = styled.div`
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 16px;
   text-transform: capitalize;
+
 `;
 
 const P = styled.p`
   margin: 0;
   text-transform: uppercase;
+`;
+
+const Img = styled.img`
+  :hover {
+    scale: calc(1.2);
+  }
 `;
 
 const DivG = styled.div`
@@ -149,7 +168,7 @@ const Div3 = styled.div`
   /* width: 180px; */
   padding: 11px;
   gap: 20px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   background-color: yellow;
   border-radius: 20px;
   :hover {
@@ -158,10 +177,9 @@ const Div3 = styled.div`
 `;
 
 const DivButton = styled.div`
-margin-top: 20px;
-margin-left: 20px;
-
-` 
+  margin-top: 20px;
+  margin-left: 20px;
+`;
 
 export default function Detalhes() {
   const [pokemon, setPokemon] = useState({});
@@ -182,15 +200,14 @@ export default function Detalhes() {
 
   return (
     <Global>
-            <DivButton>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => goBack(navigate)}
-      >
-        Voltar
-      </Button>
-
+      <DivButton>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => goBack(navigate)}
+        >
+          Voltar
+        </Button>
       </DivButton>
       <Typo>
         <Typography variant="h1" align={"center"}>
@@ -200,48 +217,50 @@ export default function Detalhes() {
 
       <DivD>{pokemon.name}</DivD>
       <ContA>
-        <DivC>
-          <Div2>
-            <Div1>
-              <DivA>
-                <img src={pokemon.sprites && pokemon.sprites.front_default} />
-              </DivA>
-              <DivB>
-                <img src={pokemon.sprites && pokemon.sprites.back_default} />
-              </DivB>
-            </Div1>
+        <DivCard>
+          <DivC>
+            <Div2>
+              <Div1>
+                <DivA>
+                  <Img src={pokemon.sprites && pokemon.sprites.front_default} />
+                </DivA>
+                <DivB>
+                  <Img src={pokemon.sprites && pokemon.sprites.back_default} />
+                </DivB>
+              </Div1>
 
-            <DivE>
-              <DivH>INFORMAÇÃO</DivH>
-              {pokemon.stats &&
-                pokemon.stats.map((item) => {
-                  return (
-                    <div>
-                      {item.stat.name}: {item.base_stat}
-                    </div>
-                  );
-                })}
-            </DivE>
-            <Div3>
-              <DivF>
-                <DivH>TIPO</DivH>
-                {pokemon.types &&
-                  pokemon.types.map((item) => {
-                    return <div>{item.type.name}</div>;
+              <DivE>
+                <DivH>INFORMAÇÃO</DivH>
+                {pokemon.stats &&
+                  pokemon.stats.map((item) => {
+                    return (
+                      <div>
+                        {item.stat.name}: {item.base_stat}
+                      </div>
+                    );
                   })}
-              </DivF>
-              <DivG>
-                <DivH>PODER</DivH>
-                <br />
-                {pokemon.moves && pokemon.moves[0].move.name}
-                <br />
-                {pokemon.moves && pokemon.moves[1].move.name}
-                <br />
-                {pokemon.moves && pokemon.moves[2].move.name}
-              </DivG>
-            </Div3>
-          </Div2>
-        </DivC>
+              </DivE>
+              <Div3>
+                <DivF>
+                  <DivH>TIPO</DivH>
+                  {pokemon.types &&
+                    pokemon.types.map((item) => {
+                      return <div>{item.type.name}</div>;
+                    })}
+                </DivF>
+                <DivG>
+                  <DivH>PODER</DivH>
+                  <br />
+                  {pokemon.moves && pokemon.moves[0].move.name}
+                  <br />
+                  {pokemon.moves && pokemon.moves[1].move.name}
+                  <br />
+                  {pokemon.moves && pokemon.moves[2].move.name}
+                </DivG>
+              </Div3>
+            </Div2>
+          </DivC>
+        </DivCard>
       </ContA>
     </Global>
   );

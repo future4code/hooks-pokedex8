@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import {goToDetalhesPage} from "../../Router/coordinator"
 import axios from "axios";
 import Button from "@material-ui/core/Button";
-import { Main, DivName, Img, DivButton, Cont,   } from "./styleCardPokemon";
+import { Main, DivName, Img, DivButton, Cont, P   } from "./styleCardPokemon";
 
 export default function CardPokemon({ pokemon }) {
   const [objDetailPoke, setObjDetailPoke] = useState({});
@@ -32,7 +32,7 @@ export default function CardPokemon({ pokemon }) {
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${objDetailPoke.id}.png`}
         /> 
         <DivName>
-          <p>{objDetailPoke.name}</p>
+          <P>{objDetailPoke.name}</P>
           
           <DivButton>
             <Button variant="outlined" 

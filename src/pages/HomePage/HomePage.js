@@ -14,7 +14,7 @@ import {
   SectionCardRendered,
   DivB,
   ContHeader,
-  DivC
+  DivC, Img
 } from "./styleHomePage";
 
 export default function HomePage() {
