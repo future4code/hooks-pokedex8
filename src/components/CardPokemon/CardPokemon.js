@@ -7,6 +7,7 @@ import { Main, DivName, Img, DivButton, Cont, P } from "./styleCardPokemon";
 import { GlobalContextPoke } from "../../global/GlobalContextPoke";
 import { BASE_URL } from "../../constants/url";
 
+
 export default function CardPokemon({ pokemon }) {
   const [objDetailPoke, setObjDetailPoke] = useState({});
   const [imgPokemon, setImgPokemon] = useState("");

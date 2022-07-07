@@ -7,6 +7,8 @@ import { Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
 import imgBack from "../../imagens/pokemon.png";
+import comfy from "../../imagens/comfy.gif";
+import camp from "../../imagens/camp.gif";
 
 
 const Global = styled.div`
@@ -27,19 +29,35 @@ const ContA = styled.div`
 `;
 
 const DivA = styled.div`
-  background-color: #9fd7f9;
+    background: rgba( 121, 201, 249, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 1px );
+    -webkit-backdrop-filter: blur( 13.5px ); 
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 20px;
   :hover {
-    background-color: blue;
+    background: rgba( 121, 201, 249, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px ); 
+    border: 1px solid rgba( 121, 201, 249, 0.18 );
     transform: scale(1.1);    
   }
 `;
 
 const DivB = styled.div`
-  background-color: #b8e2f9;
+      background: rgba( 121, 201, 249, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 1px );
+    -webkit-backdrop-filter: blur( 13.5px ); 
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 20px;
   :hover {
-    background-color: blue;
+    background: rgba( 121, 201, 249, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px ); 
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     transform: scale(1.1);
   }
 `;
@@ -48,7 +66,7 @@ const DivCard = styled.div`
   border-radius: 20px;
   width: max-content;
   padding: 15px 20px;
-  margin-top: 30px;
+  margin-top: 30px; 
   background: rgba( 255, 255, 255, 0.35 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.5px );
@@ -63,12 +81,9 @@ const DivC = styled.div`
   justify-content: center;
   align-items: center;
   padding: 30px;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    25deg,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(176, 228, 106, 1) 67%
-  );
+  background-image: url(${camp});
+  background-repeat: no-repeat;  
+  background-size: cover;
   :hover {
     transform: scale(1.1);
   }
@@ -76,14 +91,14 @@ const DivC = styled.div`
 
 const DivD = styled.div`
   text-transform: uppercase; 
-  text-align: center;
+  text-align: center;  
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 30px;
   font-weight: 600;
   padding: 10px;
   margin-bottom: 40px;  
- background: rgba( 255, 255, 255, 0.35 );
+  background: rgba( 255, 255, 255, 0.35 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.5px );
     -webkit-backdrop-filter: blur( 13.5px ); 
@@ -99,12 +114,21 @@ const DivE = styled.div`
   margin: 0px 40px;
   padding: 20px 40px;
   border-radius: 20px;
-  background-color: #ffff00;
+  background: rgba( 127, 173, 113, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 1px );
+    -webkit-backdrop-filter: blur( 13.5px ); 
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 18px;
   text-transform: capitalize;
   :hover {
+    background: rgba( 255, 255, 0, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px ); 
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     transform: scale(1.1);
   }
 `;
@@ -170,9 +194,18 @@ const Div3 = styled.div`
   height: 240px;
   padding: 40px 50px;
   gap: 40px;
-  background-color: yellow;
+  background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 1px );
+    -webkit-backdrop-filter: blur( 13.5px ); 
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 20px;
   :hover {
+    background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px ); 
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     transform: scale(1.1);
   }
 `;
