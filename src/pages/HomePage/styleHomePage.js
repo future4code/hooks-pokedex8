@@ -3,9 +3,11 @@ import imgBack from "../../imagens/pokemon.png";
 
 export const ContainerHome = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: auto;
   background-image: url(${imgBack});
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   overflow-y: scroll;
   `;
 
@@ -61,3 +63,17 @@ export const SectionCardRendered = styled.section`
     flex-direction: column;
   }
 `;
+
+export const IndexPage = styled.div`
+  display: flex;
+  padding-left: 30x;
+
+  button{
+    
+    padding: 15px;
+    font-size: 1.5rem;
+
+
+  }
+
+`
