@@ -68,8 +68,9 @@ export const IndexPage = styled.div`
   button{
     
     padding: 15px;
+    font-size: 1.5rem;
 
-    
+
   }
 
 `
