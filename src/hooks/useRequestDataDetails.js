@@ -1,12 +1,13 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
+import {BASE_URL} from '../constants/url'
 
 
-const useRequestData = (url) => {
+const useRequestData = (pokemon) => {
     const [data, setData] = useState({})
     useEffect(()=>{
       axios
-      .get(url)
+      .get((BASE_URL+pokemon))
       .then((res)=>{
         setData(res.data)
       })

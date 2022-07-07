@@ -60,3 +60,14 @@ export const SectionCardRendered = styled.section`
     flex-direction: column;
   }
 `;
+
+export const IndexPage = styled.div`
+  display: flex;
+  padding-left: 30x;
+
+  button{
+    
+    padding: 15px;
+  }
+
+`

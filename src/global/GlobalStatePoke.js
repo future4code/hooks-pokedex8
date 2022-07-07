@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { GlobalContextPoke } from "./GlobalContextPoke";
 
 export const GlobalStatePoke = (props) => {
     const [pokedex, setPokedex] = useState([])
+    const [allPokemons, setAllPokemons] = useState([])
 
     const addPokemon = (objPoke) => {
         const array = [...pokedex, objPoke]
@@ -10,7 +12,7 @@ export const GlobalStatePoke = (props) => {
     }
 
     const removePokemon = (idPokemon) => {
-        const array = pokedex.filter(obj=>{
+        const array = pokedex.filter(obj => {
             return obj.id != idPokemon
         })
 
@@ -18,9 +20,19 @@ export const GlobalStatePoke = (props) => {
 
     }
 
+    useEffect(() => {
+
+        axios.get('https://pokeapi.co/api/v2/pokemon?limit=1155&offset=0')
+            .then(res => {
+                setAllPokemons(res.data.results)
+            })
+
+    }, [])
+
+
     return (
         <GlobalContextPoke.Provider
-            value={{ pokedex, addPokemon, removePokemon }} >
+            value={{ pokedex, addPokemon, removePokemon, allPokemons }} >
             {props.children}
         </GlobalContextPoke.Provider>
 
