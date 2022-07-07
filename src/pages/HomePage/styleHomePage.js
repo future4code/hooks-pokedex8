@@ -5,7 +5,9 @@ export const ContainerHome = styled.div`
   width: 100vw;
   height: auto;
   background-image: url(${imgBack});
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   overflow-y: scroll;
   `;
 
