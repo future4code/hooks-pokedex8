@@ -14,7 +14,8 @@ import {
   SectionCardRendered,
   DivB,
   ContHeader,
-  DivC, Img
+  DivC,
+  Img,
 } from "./styleHomePage";
 import { GlobalContextPoke } from "../../global/GlobalContextPoke";
 
@@ -22,76 +23,61 @@ export default function HomePage() {
   // Estado //
   const navigate = useNavigate();
   const [pokemon, setPokemon] = useState();
-  const { allPokemons } = useContext(GlobalContextPoke)
-  const [limit, setLimit] = useState(21)
-  const [init, setInit] = useState(0)
-
-
+  const { allPokemons } = useContext(GlobalContextPoke);
+  const [init, setInit] = useState(0);
 
   // useEffect buscando dados dos pokemons na API //
   useEffect(() => {
     axios
-      .get(`https://pokeapi.co/api/v2/pokemon?offset=${init}&limit=${limit}`)
+      .get(`https://pokeapi.co/api/v2/pokemon?offset=${init}&limit=${15}`)
       .then((res) => {
         setPokemon(res.data.results);
-
       })
       .catch((err) => alert(err));
-  }, [init])
-
+  }, [init]);
 
   const nextPage = (num) => {
-
-    setInit(init + 21)
-    setPokemon([])
-
-  }
+    setInit(init + 15);
+    setPokemon([]);
+  };
 
   const menosPage = (num) => {
-    if (init >= 21){
-      setInit(init - 21)
-      setPokemon([])}
-      
-      
+    if (init >= 15) {
+      setInit(init - 15);
+      setPokemon([]);
+    }
+  };
 
-}
-
-console.log(pokemon)
-return (
-  <ContainerHome>
-    <ContHeader>
-      {/* <DivA> */}
-      {/* <DivB> */}
-      <img src={logoimg} />
-
-      {/* </DivB> */}
-      <DivButtonPokedex>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => goToPokedexPage(navigate)}
-        >
-          Pokedex Page
+  console.log(pokemon);
+  return (
+    <ContainerHome>
+      <ContHeader>
+        <img src={logoimg} />
+      </ContHeader>
+      <IndexPage>
+        <Button variant="contained" color="primary" onClick={menosPage}>
+          {"<<"}
         </Button>
-      </DivButtonPokedex>
-
-      {/* </DivA> */}
-    </ContHeader>
-
-    <SectionCardRendered>
-      {pokemon &&
-        pokemon.map((objPoke) => {
-          return <CardPokemon pokemon={objPoke.name} />;
-        }
-        )}
-      <IndexPage >
-        <button onClick={nextPage}>proxima pagina</button>
-        <button onClick={menosPage}>pagina anterior</button>
-
+        <DivButtonPokedex>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => goToPokedexPage(navigate)}
+          >
+            Pokedex Page
+          </Button>
+        </DivButtonPokedex>
+        <Button variant="contained" color="primary" onClick={nextPage}>
+          {">>"}{" "}
+        </Button>
       </IndexPage>
-    </SectionCardRendered>
 
-
-  </ContainerHome>
-);
+      <SectionCardRendered>
+        {pokemon &&
+          pokemon.map((objPoke) => {
+            return <CardPokemon pokemon={objPoke.name} />;
+          })}
+      </SectionCardRendered>
+    </ContainerHome>
+  );
 }

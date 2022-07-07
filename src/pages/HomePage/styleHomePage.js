@@ -1,79 +1,62 @@
 import styled from "styled-components";
 import imgBack from "../../imagens/pokemon.png";
 
+
 export const ContainerHome = styled.div`
-  width: 100vw;
-  height: auto;
   background-image: url(${imgBack});
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  overflow-y: scroll;
-  `;
+`;
 
 export const ContHeader = styled.div`
-display: flex;
-justify-content: center; 
-  
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
-  background-color: green;
-`
+  background: rgb(105,146,242);
+background: linear-gradient(25deg, rgba(105,146,242,1) 36%, rgba(121,201,249,1) 49%, rgba(176,228,106,1) 64%);
+  height: 121px;
+`;
+
 export const DivA = styled.div`
-display: flex;
-/* width: 1385px; */
-/* margin-left: 250px; */
-/* margin-bottom: 10px; */
-background-color: red;
+  display: flex;
+  background-color: red;
 `;
 
 export const DivB = styled.div`
-display: flex;
-/* margin-top: 20px; */
-/* margin-left: 500px; */
+  display: flex;
 `;
-export const DivC = styled.div`
 
-`
-export const Img  = styled.img`
-
-`
 
 export const DivButtonPokedex = styled.div`
-/* display: flex; */
-/* flex-direction: column-reverse; */
-/* width: 280px; */
-/* margin-left: 352px; */
-/* flex-direction: row-reverse; */
-/* margin-top: 120px; */
-/* background-color: blue; */
+  display: flex;
 `;
 
 // Grade dos cards Pokemons //
-export const SectionCardRendered = styled.section`  
-  display: grid;
-  
-  grid-template-columns: repeat(auto-fit, minmax(422px, 1fr));
+export const SectionCardRendered = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  padding-left: 250px;
-  padding-right: 250px;
-  margin-bottom: 20px;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  padding-bottom: 20px;
 
-  @media(max-width:600px)  {
-    display:flex;
+  /* @media (max-width: 600px) {
+    display: flex;
     flex-direction: column;
-  }
+  } */
 `;
 
 export const IndexPage = styled.div`
   display: flex;
-  padding-left: 30x;
+  padding: 0px 40px;
+  padding-bottom: 20px;
+  justify-content: space-between;
+  height: 40px;
 
-  button{
-    
+  button {
     padding: 15px;
     font-size: 1.5rem;
-
-
   }
-
-`
+`;
