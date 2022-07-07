@@ -3,7 +3,7 @@ import imgBack from "../../imagens/pokemon.png";
 
 export const ContainerHome = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: auto;
   background-image: url(${imgBack});
   background-size: contain;
   overflow-y: scroll;
