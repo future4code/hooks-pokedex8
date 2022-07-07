@@ -49,7 +49,8 @@ export const DivButtonPokedex = styled.div`
 // Grade dos cards Pokemons //
 export const SectionCardRendered = styled.section`  
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  
+  grid-template-columns: repeat(auto-fit, minmax(422px, 1fr));
   gap: 20px;
   padding-left: 250px;
   padding-right: 250px;
