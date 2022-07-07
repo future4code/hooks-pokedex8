@@ -2,13 +2,17 @@ import styled from "styled-components";
 
 //tamanho dos cartões com a page / grid
 export const Main = styled.div`
-  display: flex;
+  display: flex; 
   justify-content: center ;
   align-items: center;
   border-radius: 20px;
-  background-color: #ffffff70;
+  background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px ); 
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
   width: 435px;
-  height: 131px;
+  height: 130px;
   `;
 
   export const Cont = styled.div`
@@ -45,14 +49,10 @@ export const DivName = styled.div`
   background-color: #ffffff;
   width: 300px;
   border-radius: 0px 20px 20px 0px;
-  /* height: 30%; */
-  /* background-color: blue; */
 `;
 
 export const DivButton = styled.div`
   display: flex;  
   width: 100%;
   justify-content: space-evenly;
-  /* padding: 20px; */
-  /* background-color: red; */
 `;
