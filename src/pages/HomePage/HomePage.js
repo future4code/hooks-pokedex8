@@ -25,6 +25,8 @@ export default function HomePage() {
   const [pokemon, setPokemon] = useState();
   const { allPokemons } = useContext(GlobalContextPoke);
   const [init, setInit] = useState(0);
+  const [inputPokemon, setInputPokemon] = useState('')
+  const [seachPoke, setSeachPoke] = useState([])
 
   // useEffect buscando dados dos pokemons na API //
   useEffect(() => {
@@ -36,6 +38,8 @@ export default function HomePage() {
       .catch((err) => alert(err));
   }, [init]);
 
+
+  //========================== botões de prev e next
   const nextPage = (num) => {
     setInit(init + 15);
     setPokemon([]);
@@ -48,16 +52,67 @@ export default function HomePage() {
     }
   };
 
-  console.log(pokemon);
+  //===================== pesquisa ======================
+  const seach = () => {
+
+    setSeachPoke([])
+    let seachPokemon = allPokemons.filter(poke => {
+      return poke.name.includes('xxx')
+    })
+
+    seachPokemon = allPokemons.filter(poke => {
+      return poke.name.includes(inputPokemon)
+    })
+
+    listPokeSeach =''
+    setPokemon([])
+    setSeachPoke(seachPokemon)
+    setPokemon([])
+    console.log(seachPokemon)
+  }
+
+
+  const onChageInput = (e) => {
+    setInputPokemon(e.target.value)
+  }
+
+  let listPokeRend = (
+
+    pokemon &&
+    pokemon.map((objPoke) => {
+      return <CardPokemon pokemon={objPoke.name} />;
+    })
+
+  )
+
+  let listPokeSeach = ''
+    
+  listPokeSeach = (
+
+    seachPoke.map((objPoke) => {
+      return <CardPokemon pokemon={objPoke.name} />;
+    })
+  )
+
+  console.log(listPokeSeach)
   return (
+
     <ContainerHome>
+
       <ContHeader>
         <img src={logoimg} />
       </ContHeader>
+
       <IndexPage>
         <Button variant="contained" color="primary" onClick={menosPage}>
           {"<<"}
         </Button>
+        <div>
+          <input placeholder="digite aqui"
+            value={inputPokemon} onChange={onChageInput} />
+          <button onClick={seach}>pesq</button>
+        </div>
+
         <DivButtonPokedex>
           <Button
             variant="contained"
@@ -67,16 +122,15 @@ export default function HomePage() {
             Pokedex Page
           </Button>
         </DivButtonPokedex>
+
         <Button variant="contained" color="primary" onClick={nextPage}>
           {">>"}{" "}
         </Button>
+
       </IndexPage>
 
       <SectionCardRendered>
-        {pokemon &&
-          pokemon.map((objPoke) => {
-            return <CardPokemon pokemon={objPoke.name} />;
-          })}
+        {seachPoke.length > 0 ? listPokeSeach : listPokeRend}
       </SectionCardRendered>
     </ContainerHome>
   );
