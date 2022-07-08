@@ -19,8 +19,7 @@ export const Main = styled.div`
 export const Cont = styled.div`
   display: flex;
   :hover {
-    transform: scale(1.1);
-    /* background-color: blue; */
+    transform: scale(1.1); 
     border-radius: 20px;
   }
 `;
