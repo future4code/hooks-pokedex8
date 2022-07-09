@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { GlobalContextPoke } from "../../global/GlobalContextPoke";
 import axios from "axios";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
@@ -9,7 +10,7 @@ import styled from "styled-components";
 import imgBack from "../../imagens/pokemon.png";
 import comfy from "../../imagens/comfy.gif";
 import camp from "../../imagens/camp.gif";
-
+import pokecard from "../../imagens/pokecard.png"
 
 const Global = styled.div`
   width: 100vw;
@@ -20,7 +21,11 @@ const Global = styled.div`
 `;
 
 const Typo = styled.div`
-  margin-top: 40px;
+display: flex;
+justify-content: center;
+/* background-color: red; */
+/* margin-top: 40px; */
+
 `;
 
 const ContA = styled.div`
@@ -31,7 +36,7 @@ const ContA = styled.div`
 const DivA = styled.div`
     background: rgba( 121, 201, 249, 0.35 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 1px );
+    backdrop-filter: blur( 16px );
     -webkit-backdrop-filter: blur( 13.5px ); 
     border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 20px;
@@ -48,7 +53,7 @@ const DivA = styled.div`
 const DivB = styled.div`
       background: rgba( 121, 201, 249, 0.35 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 1px );
+    backdrop-filter: blur( 16px );
     -webkit-backdrop-filter: blur( 13.5px ); 
     border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 20px;
@@ -116,7 +121,7 @@ const DivE = styled.div`
   border-radius: 20px;
   background: rgba( 127, 173, 113, 0.35 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 1px );
+    backdrop-filter: blur( 16px );
     -webkit-backdrop-filter: blur( 13.5px ); 
     border: 1px solid rgba( 255, 255, 255, 0.18 );
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -196,7 +201,7 @@ const Div3 = styled.div`
   gap: 40px;
   background: rgba( 255, 255, 255, 0.35 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 1px );
+    backdrop-filter: blur( 16px );
     -webkit-backdrop-filter: blur( 13.5px ); 
     border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 20px;
@@ -228,12 +233,23 @@ const Progress = styled.div`
     transition: all 0.2s ease;
   }
 `;
+const DivAdicionar = styled.div`
+display: flex;
+justify-content: center;
+margin-top: 20px;
+` 
 
 export default function Detalhes() {
+  // ========================= estado
+  const { addPokemon, removePokemon, pokedex } = useContext(GlobalContextPoke);
   const [pokemon, setPokemon] = useState({});
   const navigate = useNavigate();
   const params = useParams();
   const namePokemon = params.namepokemon;
+
+
+
+
 
   useEffect(() => {
     axios
@@ -245,6 +261,37 @@ export default function Detalhes() {
         console.log("erro :", err);
       });
   }, []);
+
+     // ========================= botão adicionar
+     const buttonAdd = (
+      <Button
+        variant="contained"
+        size="large"
+        color="primary"
+        onClick={() => addPokemon(pokemon)}
+      >
+        Adicionar
+      </Button>
+    );
+  
+  
+   // ========================= botão remover
+    const buttonRemove = (
+      <Button
+        variant="contained"
+        size="large"
+        color="secondary"
+        onClick={() => removePokemon(pokemon.id)}
+      >
+        Remove
+      </Button>
+    );
+  
+  
+    // ========================= validação do botão adicionar e remover
+    const valit = pokedex.filter(item =>{
+      return item.name === namePokemon
+    }) 
 
   return (
     <Global>
@@ -258,12 +305,13 @@ export default function Detalhes() {
         </Button>
       </DivButton>
       <Typo>        
-        <Typography variant="h1" align={"center"}>
-          Pokecard
-        </Typography>
+        <img src={pokecard}/>
       </Typo>
 
-      <DivD>{pokemon.name}</DivD>
+      <DivD>{pokemon.name}      
+     
+
+      </DivD>
       <ContA>
         <DivCard>
           <DivC>
@@ -291,6 +339,7 @@ export default function Detalhes() {
                   })}
               </DivE>
               <Div3>
+                  
                 <DivF>
                   <DivH>TIPO</DivH>
                   {pokemon.types &&
@@ -311,6 +360,9 @@ export default function Detalhes() {
           </DivC>
         </DivCard>
       </ContA>
+      <DivAdicionar>
+      {valit.length > 0 ? buttonRemove : buttonAdd}
+      </DivAdicionar>
     </Global>
   );
 }

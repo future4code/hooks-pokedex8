@@ -25,7 +25,10 @@ export const Cont = styled.div`
 `;
 export const P = styled.p`
   text-transform: capitalize;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000077; 
 `;
 
 export const Img = styled.img`

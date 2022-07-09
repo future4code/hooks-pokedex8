@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 import { ContainerHome, IndexPage } from "./styleHomePage";
-import logoimg from "../../imagens/pokedex.png";
+import logoimg from "../../imagens/pokehooks.png";
 import CardPokemon from "../../components/CardPokemon/CardPokemon";
 import styled from "styled-components";
 import {
@@ -52,25 +52,6 @@ export default function HomePage() {
     }
   };
 
-  //===================== pesquisa ======================
-  const seach = () => {
-
-    setSeachPoke([])
-    let seachPokemon = allPokemons.filter(poke => {
-      return poke.name.includes('xxx')
-    })
-
-    seachPokemon = allPokemons.filter(poke => {
-      return poke.name.includes(inputPokemon)
-    })
-
-    listPokeSeach =''
-    setPokemon([])
-    setSeachPoke(seachPokemon)
-    setPokemon([])
-    console.log(seachPokemon)
-  }
-
 
   const onChageInput = (e) => {
     setInputPokemon(e.target.value)
@@ -88,7 +69,6 @@ export default function HomePage() {
   let listPokeSeach = ''
     
   listPokeSeach = (
-
     seachPoke.map((objPoke) => {
       return <CardPokemon pokemon={objPoke.name} />;
     })
@@ -107,12 +87,7 @@ export default function HomePage() {
         <Button variant="contained" color="primary" onClick={menosPage}>
           {"<<"}
         </Button>
-        <div>
-          <input placeholder="digite aqui"
-            value={inputPokemon} onChange={onChageInput} />
-          <button onClick={seach}>pesq</button>
-        </div>
-
+  
         <DivButtonPokedex>
           <Button
             variant="contained"
