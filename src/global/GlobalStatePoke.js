@@ -21,14 +21,16 @@ export const GlobalStatePoke = (props) => {
     }
 
     useEffect(() => {
-
         axios.get('https://pokeapi.co/api/v2/pokemon?limit=1155&offset=0')
             .then(res => {
                 setAllPokemons(res.data.results)
             })
-
     }, [])
-
+    
+    useEffect(() => {
+      
+            
+    }, [])
 
     return (
         <GlobalContextPoke.Provider

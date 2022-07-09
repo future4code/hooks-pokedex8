@@ -7,12 +7,15 @@ export const ContainerHome = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  /* padding-top: 20px; */
 `;
 
 export const ContHeader = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  /* align-items: center; */
+  margin-bottom: 10px;
+  padding-top: 10px;
   background: rgb(105,146,242);
 background: linear-gradient(25deg, rgba(105,146,242,1) 36%, rgba(121,201,249,1) 49%, rgba(176,228,106,1) 64%);
   height: 121px;
