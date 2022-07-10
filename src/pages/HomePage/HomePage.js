@@ -1,32 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
+// import { GlobalContextPoke } from "../../global/GlobalContextPoke";
 import { useNavigate } from "react-router";
 import { goToPokedexPage } from "../../Router/coordinator";
 import { Button } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import axios from "axios";
 import { ContainerHome, IndexPage } from "./styleHomePage";
+import axios from "axios";
 import logoimg from "../../imagens/pokehooks.png";
 import CardPokemon from "../../components/CardPokemon/CardPokemon";
-import styled from "styled-components";
 import {
-  DivA,
   DivButtonPokedex,
   SectionCardRendered,
-  DivB,
   ContHeader,
-  DivC,
-  Img,
 } from "./styleHomePage";
-import { GlobalContextPoke } from "../../global/GlobalContextPoke";
 
 export default function HomePage() {
-  // Estado //
+  //========================== Estado
   const navigate = useNavigate();
   const [pokemon, setPokemon] = useState();
-  const { allPokemons } = useContext(GlobalContextPoke);
+  // const { allPokemons } = useContext(GlobalContextPoke);
+  // const [inputPokemon, setInputPokemon] = useState("");
   const [init, setInit] = useState(0);
-  const [inputPokemon, setInputPokemon] = useState('')
-  const [seachPoke, setSeachPoke] = useState([])
+  const [seachPoke, setSeachPoke] = useState([]);
 
   // useEffect buscando dados dos pokemons na API //
   useEffect(() => {
@@ -38,13 +32,13 @@ export default function HomePage() {
       .catch((err) => alert(err));
   }, [init]);
 
-
-  //========================== botões de prev e next
+  //========================== Adicionar 15 pokemons no array quando clicado o botão "próxima página"
   const nextPage = (num) => {
     setInit(init + 15);
     setPokemon([]);
   };
 
+  //========================= Diminui 15 pokemons no array quando clicado o botão "página anterior"
   const menosPage = (num) => {
     if (init >= 15) {
       setInit(init - 15);
@@ -52,33 +46,28 @@ export default function HomePage() {
     }
   };
 
+  //======================== imput controlado para futura implementação de busca
+  // const onChageInput = (e) => {
+  //   setInputPokemon(e.target.value)
+  // }
 
-  const onChageInput = (e) => {
-    setInputPokemon(e.target.value)
-  }
-
-  let listPokeRend = (
-
+  //======================== Renderizar os poquemons no junto com o componente "CardPokemons"
+  let listPokeRend =
     pokemon &&
     pokemon.map((objPoke) => {
       return <CardPokemon pokemon={objPoke.name} />;
-    })
+    });
 
-  )
+  //======================== Variável com valor vazio
+  let listPokeSeach = "";
 
-  let listPokeSeach = ''
-    
-  listPokeSeach = (
-    seachPoke.map((objPoke) => {
-      return <CardPokemon pokemon={objPoke.name} />;
-    })
-  )
+  //======================== Função com map para renderizar os poquemons no junto com o componente "CardPokemons"
+  listPokeSeach = seachPoke.map((objPoke) => {
+    return <CardPokemon pokemon={objPoke.name} />;
+  });
 
-  console.log(listPokeSeach)
   return (
-
     <ContainerHome>
-
       <ContHeader>
         <img src={logoimg} />
       </ContHeader>
@@ -87,7 +76,7 @@ export default function HomePage() {
         <Button variant="contained" color="primary" onClick={menosPage}>
           {"<<"}
         </Button>
-  
+
         <DivButtonPokedex>
           <Button
             variant="contained"
@@ -101,10 +90,10 @@ export default function HomePage() {
         <Button variant="contained" color="primary" onClick={nextPage}>
           {">>"}{" "}
         </Button>
-
       </IndexPage>
 
       <SectionCardRendered>
+        {/* Condição para renderizar cardpokemon com botão de adicionar ou botão de remover */}
         {seachPoke.length > 0 ? listPokeSeach : listPokeRend}
       </SectionCardRendered>
     </ContainerHome>

@@ -8,7 +8,7 @@ import { GlobalContextPoke } from "../../global/GlobalContextPoke";
 import { BASE_URL } from "../../constants/url";
 
 export default function CardPokemon({ pokemon }) {
-   // ========================= estado
+  // ========================= Estado
   const { addPokemon, removePokemon, pokedex } = useContext(GlobalContextPoke);
   const [objDetailPoke, setObjDetailPoke] = useState({});
   const [imgPokemon, setImgPokemon] = useState("");
@@ -27,7 +27,7 @@ export default function CardPokemon({ pokemon }) {
       });
   }, []);
 
-   // ========================= botão adicionar
+  // ========================= Botão adicionar
   const buttonAdd = (
     <Button
       variant="contained"
@@ -39,8 +39,7 @@ export default function CardPokemon({ pokemon }) {
     </Button>
   );
 
-
- // ========================= botão remover
+  // ========================= Botão remover
   const buttonRemove = (
     <Button
       variant="contained"
@@ -52,13 +51,11 @@ export default function CardPokemon({ pokemon }) {
     </Button>
   );
 
+  // ========================= Validação do botão adicionar e remover
+  const valit = pokedex.filter((item) => {
+    return item.name === pokemon;
+  });
 
-  // ========================= validação do botão adicionar e remover
-  const valit = pokedex.filter(item =>{
-    return item.name === pokemon
-  }) 
-
-  
   return (
     <Main>
       <Cont>
@@ -71,15 +68,14 @@ export default function CardPokemon({ pokemon }) {
           <DivButton>
             <Button
               variant="contained"
-              color="success"              
-              size="small"              
+              color="success"
+              size="small"
               onClick={() => goToDetalhesPage(navigate, objDetailPoke.name)}
             >
               Detalhes
             </Button>
-
-            {valit.length > 0 ? buttonRemove : buttonAdd}            
-            
+            {/* Verifica o botão e muda de adicicionar para remover */}
+            {valit.length > 0 ? buttonRemove : buttonAdd}
           </DivButton>
         </DivName>
       </Cont>

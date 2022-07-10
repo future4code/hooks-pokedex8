@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import pokemon from "../../imagens/pokemon.png";
 
-//tamanho dos cartões com a page / grid
+// ======================= Mapa
+
+//Tamanho dos cartões com a page / grid
 export const Main = styled.div`
   display: flex;
   justify-content: center;
@@ -19,29 +21,18 @@ export const Main = styled.div`
 export const Cont = styled.div`
   display: flex;
   :hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
     border-radius: 20px;
   }
 `;
-export const P = styled.p`
-  text-transform: capitalize;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #000077; 
-`;
 
 export const Img = styled.img`
-margin: 0 auto;
-  /* background-color: #ffffff70; */
+  margin: 0 auto;
   width: auto;
   height: 120px;
   border-radius: 20px 0px 0px 20px;
   :hover {
-    transform: scale(1.2);    
-    /* height: max-content; */
-    /* background-color: #ffffff80; */
-   
+    transform: scale(1.2);
   }
 `;
 
@@ -55,6 +46,14 @@ export const DivName = styled.div`
   background-image: url(${pokemon});
   background-repeat: no-repeat;
   background-size: cover;
+`;
+
+export const P = styled.p`
+  text-transform: capitalize;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000077;
 `;
 
 export const DivButton = styled.div`
