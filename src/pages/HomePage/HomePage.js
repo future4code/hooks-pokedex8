@@ -32,24 +32,19 @@ export default function HomePage() {
       .catch((err) => alert(err));
   }, [init]);
 
-  //========================== Adicionar 15 pokemons no array quando clicado o botão "próxima página"
+  //========================== a variavel Init é a responsavel pelo inicio do index de inicio do array, a requisição inicia com 0 a 15, qdo clica para passar, a initi aumenta 15 e a requisição é do 15 ao 30
   const nextPage = (num) => {
     setInit(init + 15);
     setPokemon([]);
   };
 
-  //========================= Diminui 15 pokemons no array quando clicado o botão "página anterior"
+  //========================= Diminui 15 do initi e voltaa
   const menosPage = (num) => {
     if (init >= 15) {
       setInit(init - 15);
       setPokemon([]);
     }
   };
-
-  //======================== imput controlado para futura implementação de busca
-  // const onChageInput = (e) => {
-  //   setInputPokemon(e.target.value)
-  // }
 
   //======================== Renderizar os poquemons no junto com o componente "CardPokemons"
   let listPokeRend =
@@ -58,13 +53,7 @@ export default function HomePage() {
       return <CardPokemon pokemon={objPoke.name} />;
     });
 
-  //======================== Variável com valor vazio
-  let listPokeSeach = "";
-
-  //======================== Função com map para renderizar os poquemons no junto com o componente "CardPokemons"
-  listPokeSeach = seachPoke.map((objPoke) => {
-    return <CardPokemon pokemon={objPoke.name} />;
-  });
+  
 
   return (
     <ContainerHome>
@@ -93,8 +82,8 @@ export default function HomePage() {
       </IndexPage>
 
       <SectionCardRendered>
-        {/* Condição para renderizar cardpokemon com botão de adicionar ou botão de remover */}
-        {seachPoke.length > 0 ? listPokeSeach : listPokeRend}
+       
+        {listPokeRend}
       </SectionCardRendered>
     </ContainerHome>
   );
