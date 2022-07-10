@@ -2,7 +2,7 @@
 
 Nome dos integrantes: 
 - Pessoa 1
-- Pessoa 2
+- Jonas Levy Pereira Meneses
 - Pessoa 3
 
 Link do Surge: www.link.com.br
