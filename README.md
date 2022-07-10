@@ -1,16 +1,18 @@
 # POKEDEX
 
-Nome dos integrantes: 
-- Pessoa 1
-- Jonas Levy Pereira Meneses
-- Pessoa 3
+## ✒️ Nome dos integrantes: 
+- **Patrick lins**  
+- **Jonas Levy Pereira Meneses** - *JavaScript / CSS*
+- **Wictor Feitosa Leal Cardoso** - *CSS / JavaScript*
 
-Link do Surge: www.link.com.br
+## 🖇️ Link do Surge: https://glib-unit.surge.sh/
 
-O que funciona:
-- Item 1
-- Item 2
+### 📋 O que funciona:
+- > Renderização dos pokemons
+- > Detalhes dos pokemons (ataque, poderres, velocidade)
+- > Navegar entre as páginas com botões
+- > Adicionar pokemon a pokedex
+- > Remover pokemons da pokedex
 
-O que não funciona: 
-- Item 3
-- Item 4
+### 📋 O que não funciona: 
+- > Responsividade para formato (mobile)
