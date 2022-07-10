@@ -8,11 +8,11 @@
 ## 🖇️ Link do Surge: https://glib-unit.surge.sh/
 
 ### 📋 O que funciona:
-- > Renderização dos pokemons
-- > Detalhes dos pokemons (ataque, poderres, velocidade)
-- > Navegar entre as páginas com botões
-- > Adicionar pokemon a pokedex
-- > Remover pokemons da pokedex
+ > - [x] Renderização dos pokemons
+ > - [x] Detalhes dos pokemons (ataque, poderres, velocidade)
+ > - [x] Navegar entre as páginas com botões
+ > - [x] Adicionar pokemon a pokedex
+ > - [x] Remover pokemons da pokedex
 
 ### 📋 O que não funciona: 
-- > Responsividade para formato (mobile)
+ > - [x] Responsividade para formato (mobile)
